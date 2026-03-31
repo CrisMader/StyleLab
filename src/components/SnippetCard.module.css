@@ -1,0 +1,23 @@
+.card {
+    border: solid rgb(180, 86, 209) 2px;
+    width: 200px;
+    height: 300px;
+    margin: 0 20px 20px 0;
+    padding: 10px;
+    border-radius: 3%;
+    background: linear-gradient(180deg,
+            #020617,
+            #0a0f2c,
+            #1e1b4b,
+            #4c1d95);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card header {
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

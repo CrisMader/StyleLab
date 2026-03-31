@@ -6,7 +6,7 @@ function App() {
     <>
       <h1>Snippets</h1>
       {snippets.map(snippet => {
-        return <SnippetCard snippet={snippet} key={snippet.id}/>
+        return <SnippetCard snippet={snippet} key={snippet.id} />
       })}
     </>
   )
