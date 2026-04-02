@@ -8,7 +8,7 @@ interface SnippetCardProps {
 export const SnippetCard = ({ snippet }: SnippetCardProps) => {
     return (
             <article className={styles.card}>
-                <header>
+                <header className={styles.cardHeader}>
                     <h2>{snippet.title}</h2>
                     <p>{snippet.category}</p>
                 </header>
