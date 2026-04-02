@@ -1,5 +1,6 @@
 import type { Snippet } from "../types"
 import styles from './SnippetCard.module.css'
+import { SnippetCardPreview } from "./SnippetCardPreview"
 
 interface SnippetCardProps {
     snippet: Snippet
@@ -14,6 +15,7 @@ export const SnippetCard = ({ snippet }: SnippetCardProps) => {
                 </header>
 
                 <p>{snippet.description}</p>
+                <SnippetCardPreview cssCode={snippet.cssCode} htmlCode={snippet.htmlCode}/>
             </article>
     )
 }

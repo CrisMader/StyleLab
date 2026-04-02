@@ -8,3 +8,4 @@ export interface Snippet{
     author: string
     createdAt: string
 }
+
