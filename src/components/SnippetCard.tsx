@@ -1,6 +1,7 @@
 import type { Snippet } from "../types"
 import styles from '../styles/SnippetCard.module.css'
 import { SnippetCardPreview } from "./SnippetCardPreview"
+import { CopyButton } from "./CopyButton"
 
 interface SnippetCardProps {
     snippet: Snippet
@@ -17,6 +18,7 @@ export const SnippetCard = ({ snippet }: SnippetCardProps) => {
                 <p>{snippet.description}</p>
                 <SnippetCardPreview cssCode={snippet.cssCode} htmlCode={snippet.htmlCode}/>
                 <p>Author: {snippet.author}</p>
+                <CopyButton copyText={snippet.cssCode}/>
             </article>
     )
 }
