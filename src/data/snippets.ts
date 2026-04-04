@@ -36,5 +36,207 @@ export const snippets: Snippet[] = [
     author: "CrisMader",
     createdAt: "2025-03-20"
 
+  },
+  {
+    id: 3,
+    title: "Glassmorphism Card",
+    description: "Frosted glass effect with blur and transparency",
+    category: "cards",
+    cssCode: `.card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+}`,
+    htmlCode: `<div class="card">Glass Card</div>`,
+    author: "CrisMader",
+    createdAt: "2025-03-20"
+  },
+  {
+    id: 4,
+    title: "Gradient Border Card",
+    description: "Card with animated gradient border",
+    category: "cards",
+    cssCode: `.card {
+  padding: 20px;
+  border-radius: 12px;
+  background: #1e1e1e;
+  color: white;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(45deg, #00f5a0, #00d9f5);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+}`,
+    htmlCode: `<div class="card">Gradient Border</div>`,
+    author: "CrisMader",
+    createdAt: "2025-03-20"
+  },
+  {
+    id: 5,
+    title: "Hover Lift Card",
+    description: "Card that lifts with shadow on hover",
+    category: "cards",
+    cssCode: `.card {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}`,
+    htmlCode: `<div class="card">Hover me</div>`,
+    author: "CrisMader",
+    createdAt: "2025-03-20"
+  },
+  {
+    id: 6,
+    title: "Neumorphism Card",
+    description: "Soft UI card with inner shadows",
+    category: "cards",
+    cssCode: `.card {
+  background: #2e2e2e;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  box-shadow: 8px 8px 16px #1f1f1f,
+              -8px -8px 16px #3d3d3d;
+}`,
+    htmlCode: `<div class="card">Neumorphism</div>`,
+    author: "CrisMader",
+    createdAt: "2025-03-20"
+  },
+  {
+    id: 7,
+    title: "Image Overlay Card",
+    description: "Card with background image and dark overlay",
+    category: "cards",
+    cssCode: `.card {
+  position: relative;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  color: white;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://picsum.photos/300') center/cover;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.card span {
+  position: relative;
+  z-index: 2;
+}`,
+    htmlCode: `<div class="card"><span>Overlay Card</span></div>`,
+    author: "CrisMader",
+    createdAt: "2025-03-20"
+  },
+  {
+    id: 8,
+    title: "Minimal Clean Card",
+    description: "Simple and clean card with subtle border",
+    category: "cards",
+    cssCode: `.card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  color: #eee;
+}`,
+    htmlCode: `<div class="card">Minimal Card</div>`,
+    author: "CrisMader",
+    createdAt: "2025-03-20"
+  },
+
+  {
+    id: 3,
+    title: "Pulse Animation",
+    description: "A smooth pulsing animation effect for attention-grabbing elements",
+    category: "animations",
+    cssCode: `.pulse {
+  width: 80px;
+  height: 80px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+}`,
+    htmlCode: `<div class="pulse"></div>`,
+    author: "CrisMader",
+    createdAt: "2025-03-22"
+  },
+  {
+    id: 4,
+    title: "Glassmorphism Card",
+    description: "A frosted glass effect card with blur and transparency",
+    category: "cards",
+    cssCode: `.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  width: 250px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}`,
+    htmlCode: `<div class="glass-card">Frosted glass effect</div>`,
+    author: "CrisMader",
+    createdAt: "2025-03-25"
+  },
+  {
+    id: 5,
+    title: "Underline Hover Link",
+    description: "A link with animated underline that slides in on hover",
+    category: "hover-effects",
+    cssCode: `.hover-link {
+  position: relative;
+  text-decoration: none;
+  color: #3b82f6;
+  font-size: 18px;
+}
+.hover-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: #3b82f6;
+  transition: width 0.3s ease;
+}
+.hover-link:hover::after {
+  width: 100%;
+}`,
+    htmlCode: `<a class="hover-link" href="">Hover over me</a>`,
+    author: "CrisMader",
+    createdAt: "2025-04-01"
   }
 ]
