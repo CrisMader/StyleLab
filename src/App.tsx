@@ -3,6 +3,9 @@ import { SnippetCard } from "./components/SnippetCard"
 import styles from './styles/App.module.css'
 
 function App() {
+
+  const categories = [...new Set(snippets.map(snippet => snippet.category))]
+
   return (
     <>
 
