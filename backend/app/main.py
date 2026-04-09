@@ -32,10 +32,6 @@ Base.metadata.create_all(bind=engine)
 @app.get("/snippets", response_model=list[SnippetResponse])
 def get_snippets(db: Session = Depends(get_db)):
     snippets = db.query(Snippet).all()
-
-    if not snippets:
-        raise HTTPException(status_code=404, detail="Snippets not found")
-
     return snippets
 
 @app.get("/snippets/{id}", response_model=SnippetResponse)
