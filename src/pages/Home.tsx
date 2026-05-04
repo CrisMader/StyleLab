@@ -10,6 +10,7 @@ export const Home = () => {
   const [snippets, setSnippets] = useState<Snippet[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
+  const [query, setQuery] = useState<string>('')
 
   const categories = [...new Set(snippets.map(s => s.category))]
 
@@ -36,13 +37,26 @@ export const Home = () => {
       {loading && <h1>Cargando Snippets...</h1>}
 
       {!loading && (
-        <CategoryFilter categories={categories} onSelected={setSelectedCategory} />
+        <>
+          <input
+            className={styles.search}
+            type="text"
+            placeholder="Buscar por título o descripción..."
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+          />
+          <CategoryFilter categories={categories} onSelected={setSelectedCategory} />
+        </>
       )}
 
       {!loading && (
         <div className={styles.app}>
           {snippets
             .filter(s => selectedCategory === 'All' || s.category === selectedCategory)
+            .filter(s => {
+              const q = query.toLowerCase()
+              return s.title.toLowerCase().includes(q) || s.description.toLowerCase().includes(q)
+            })
             .map(snippet => (
               <SnippetCard key={snippet.id} snippet={snippet} />
             ))}
