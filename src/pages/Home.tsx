@@ -9,6 +9,7 @@ export const Home = () => {
 
   const [snippets, setSnippets] = useState<Snippet[]>([])
   const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<boolean>(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
   const [query, setQuery] = useState<string>('')
 
@@ -17,10 +18,11 @@ export const Home = () => {
   const getSnippets = async () => {
     try {
       const res = await fetch(`${backendURL}/snippets`)
+      if (!res.ok) throw new Error()
       const data = await res.json()
       setSnippets(data)
-    } catch (error) {
-      console.error(error)
+    } catch {
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -30,36 +32,39 @@ export const Home = () => {
     getSnippets()
   }, [])
 
+  const filtered = snippets
+    .filter(s => selectedCategory === 'All' || s.category === selectedCategory)
+    .filter(s => {
+      const q = query.toLowerCase()
+      return s.title.toLowerCase().includes(q) || s.description.toLowerCase().includes(q)
+    })
+
+  if (loading) return <p className={styles.status}>Cargando snippets...</p>
+  if (error) return <p className={styles.status}>Error al cargar los snippets. Comprueba que el servidor esté activo.</p>
+
   return (
     <>
       <h1>Snippets</h1>
 
-      {loading && <h1>Cargando Snippets...</h1>}
+      <input
+        className={styles.search}
+        type="text"
+        placeholder="Buscar por título o descripción..."
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+      />
 
-      {!loading && (
-        <>
-          <input
-            className={styles.search}
-            type="text"
-            placeholder="Buscar por título o descripción..."
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-          />
-          <CategoryFilter categories={categories} onSelected={setSelectedCategory} />
-        </>
-      )}
+      <CategoryFilter categories={categories} onSelected={setSelectedCategory} />
 
-      {!loading && (
+      {snippets.length === 0 ? (
+        <p className={styles.status}>No hay snippets disponibles aún.</p>
+      ) : filtered.length === 0 ? (
+        <p className={styles.status}>No results found for "{query}".</p>
+      ) : (
         <div className={styles.app}>
-          {snippets
-            .filter(s => selectedCategory === 'All' || s.category === selectedCategory)
-            .filter(s => {
-              const q = query.toLowerCase()
-              return s.title.toLowerCase().includes(q) || s.description.toLowerCase().includes(q)
-            })
-            .map(snippet => (
-              <SnippetCard key={snippet.id} snippet={snippet} />
-            ))}
+          {filtered.map(snippet => (
+            <SnippetCard key={snippet.id} snippet={snippet} />
+          ))}
         </div>
       )}
     </>

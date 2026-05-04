@@ -5,6 +5,13 @@
     padding: 10px;
 }
 
+.status {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: #666;
+}
+
 .search {
     display: block;
     width: calc(100% - 20px);
