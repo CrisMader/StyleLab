@@ -14,3 +14,14 @@ class Snippet(Base):
     html_code: Mapped[str]= mapped_column(Text, nullable=False)
     author: Mapped[str]= mapped_column(String, nullable=False)
     created_at: Mapped[datetime]= mapped_column(default=lambda: datetime.now(timezone.utc))
+
+
+class User(Base):
+    __tablename__ = "user"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
+    username: Mapped[str] = mapped_column(String(80), unique=True, nullable=False)
+    hashed_password: Mapped[str] = mapped_column(String, nullable=False)
+    role: Mapped[str] = mapped_column(String(20), nullable=False, default="user")
+    created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now(timezone.utc))

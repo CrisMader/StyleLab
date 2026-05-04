@@ -1,7 +1,10 @@
 .header {
-  padding: 16px 24px;
+  padding: 14px 24px;
   border-bottom: 1px solid #2a2a2a;
   background-color: #141414;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
@@ -9,4 +12,101 @@
   font-weight: 700;
   letter-spacing: 1px;
   color: #e5e5e5;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btnGhost {
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btnGhost:hover {
+  border-color: #888;
+  color: #fff;
+}
+
+.btnPrimary {
+  padding: 7px 16px;
+  border-radius: 6px;
+  background-color: #6366f1;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.btnPrimary:hover {
+  background-color: #4f46e5;
+}
+
+/* ── User dropdown ── */
+
+.userMenu {
+  position: relative;
+}
+
+.userButton {
+  background: none;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 7px 14px;
+  color: #ccc;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.userButton:hover {
+  border-color: #888;
+  color: #fff;
+}
+
+.caret {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background-color: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  min-width: 150px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.dropdownItem:hover {
+  background-color: #2a2a2a;
+  color: #fff;
 }
