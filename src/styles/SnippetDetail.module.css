@@ -1,0 +1,118 @@
+.page {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.status {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.backButton {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  transition: background 0.2s;
+}
+
+.backButton:hover {
+  background: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+}
+
+.category {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.meta {
+  text-align: right;
+  color: #555;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta p {
+  margin: 0;
+}
+
+.description {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.previewSection h2,
+.codeSection h3 {
+  margin: 0 0 12px 0;
+}
+
+.codeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.codeBlock {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.codeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.codeHeader h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.code {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  white-space: pre;
+}

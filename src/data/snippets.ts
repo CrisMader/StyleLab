@@ -6,7 +6,7 @@ export const snippets: Snippet[] = [
     title: "Gradient Button",
     description: "A modern button with gradient background and hover effect",
     category: "buttons",
-    cssCode: `.gradient-btn {
+    css_code: `.gradient-btn {
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   padding: 12px 24px;
@@ -18,23 +18,23 @@ export const snippets: Snippet[] = [
 .gradient-btn:hover {
   opacity: 0.85;
 }`,
-    htmlCode: `<button class="gradient-btn">Click me</button>`,
+    html_code: `<button class="gradient-btn">Click me</button>`,
     author: "CrisMader",
-    createdAt: "2025-03-20"
+    created_at: "2025-03-20"
   },
   {
     id: 2,
     title: "Card with Shadow",
     description: "A simple card component with shadow and padding",
     category: "cards",
-    cssCode: `.card {
+    css_code: `.card {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   padding: 20px;
   color: white;
 }`,
-    htmlCode: `<div class="card">Card with Shadow</div>`,
+    html_code: `<div class="card">Card with Shadow</div>`,
     author: "CrisMader",
-    createdAt: "2025-03-20"
+    created_at: "2025-03-20"
 
   },
   {
@@ -42,23 +42,23 @@ export const snippets: Snippet[] = [
     title: "Glassmorphism Card",
     description: "Frosted glass effect with blur and transparency",
     category: "cards",
-    cssCode: `.card {
+    css_code: `.card {
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 20px;
   color: white;
 }`,
-    htmlCode: `<div class="card">Glass Card</div>`,
+    html_code: `<div class="card">Glass Card</div>`,
     author: "CrisMader",
-    createdAt: "2025-03-20"
+    created_at: "2025-03-20"
   },
   {
     id: 4,
     title: "Gradient Border Card",
     description: "Card with animated gradient border",
     category: "cards",
-    cssCode: `.card {
+    css_code: `.card {
   padding: 20px;
   border-radius: 12px;
   background: #1e1e1e;
@@ -78,16 +78,16 @@ export const snippets: Snippet[] = [
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
 }`,
-    htmlCode: `<div class="card">Gradient Border</div>`,
+    html_code: `<div class="card">Gradient Border</div>`,
     author: "CrisMader",
-    createdAt: "2025-03-20"
+    created_at: "2025-03-20"
   },
   {
     id: 5,
     title: "Hover Lift Card",
     description: "Card that lifts with shadow on hover",
     category: "cards",
-    cssCode: `.card {
+    css_code: `.card {
   background: #2a2a2a;
   padding: 20px;
   border-radius: 12px;
@@ -99,16 +99,16 @@ export const snippets: Snippet[] = [
   transform: translateY(-8px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }`,
-    htmlCode: `<div class="card">Hover me</div>`,
+    html_code: `<div class="card">Hover me</div>`,
     author: "CrisMader",
-    createdAt: "2025-03-20"
+    created_at: "2025-03-20"
   },
   {
     id: 6,
     title: "Neumorphism Card",
     description: "Soft UI card with inner shadows",
     category: "cards",
-    cssCode: `.card {
+    css_code: `.card {
   background: #2e2e2e;
   border-radius: 20px;
   padding: 20px;
@@ -116,16 +116,16 @@ export const snippets: Snippet[] = [
   box-shadow: 8px 8px 16px #1f1f1f,
               -8px -8px 16px #3d3d3d;
 }`,
-    htmlCode: `<div class="card">Neumorphism</div>`,
+    html_code: `<div class="card">Neumorphism</div>`,
     author: "CrisMader",
-    createdAt: "2025-03-20"
+    created_at: "2025-03-20"
   },
   {
     id: 7,
     title: "Image Overlay Card",
     description: "Card with background image and dark overlay",
     category: "cards",
-    cssCode: `.card {
+    css_code: `.card {
   position: relative;
   height: 200px;
   border-radius: 12px;
@@ -151,25 +151,25 @@ export const snippets: Snippet[] = [
   position: relative;
   z-index: 2;
 }`,
-    htmlCode: `<div class="card"><span>Overlay Card</span></div>`,
+    html_code: `<div class="card"><span>Overlay Card</span></div>`,
     author: "CrisMader",
-    createdAt: "2025-03-20"
+    created_at: "2025-03-20"
   },
   {
     id: 8,
     title: "Minimal Clean Card",
     description: "Simple and clean card with subtle border",
     category: "cards",
-    cssCode: `.card {
+    css_code: `.card {
   background: #111;
   border: 1px solid #333;
   border-radius: 10px;
   padding: 20px;
   color: #eee;
 }`,
-    htmlCode: `<div class="card">Minimal Card</div>`,
+    html_code: `<div class="card">Minimal Card</div>`,
     author: "CrisMader",
-    createdAt: "2025-03-20"
+    created_at: "2025-03-20"
   },
 
   {
@@ -177,7 +177,7 @@ export const snippets: Snippet[] = [
     title: "Pulse Animation",
     description: "A smooth pulsing animation effect for attention-grabbing elements",
     category: "animations",
-    cssCode: `.pulse {
+    css_code: `.pulse {
   width: 80px;
   height: 80px;
   background: #ef4444;
@@ -188,16 +188,16 @@ export const snippets: Snippet[] = [
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.15); opacity: 0.7; }
 }`,
-    htmlCode: `<div class="pulse"></div>`,
+    html_code: `<div class="pulse"></div>`,
     author: "CrisMader",
-    createdAt: "2025-03-22"
+    created_at: "2025-03-22"
   },
   {
     id: 4,
     title: "Glassmorphism Card",
     description: "A frosted glass effect card with blur and transparency",
     category: "cards",
-    cssCode: `.glass-card {
+    css_code: `.glass-card {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -207,16 +207,16 @@ export const snippets: Snippet[] = [
   width: 250px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }`,
-    htmlCode: `<div class="glass-card">Frosted glass effect</div>`,
+    html_code: `<div class="glass-card">Frosted glass effect</div>`,
     author: "CrisMader",
-    createdAt: "2025-03-25"
+    created_at: "2025-03-25"
   },
   {
     id: 5,
     title: "Underline Hover Link",
     description: "A link with animated underline that slides in on hover",
     category: "hover-effects",
-    cssCode: `.hover-link {
+    css_code: `.hover-link {
   position: relative;
   text-decoration: none;
   color: #3b82f6;
@@ -235,8 +235,8 @@ export const snippets: Snippet[] = [
 .hover-link:hover::after {
   width: 100%;
 }`,
-    htmlCode: `<a class="hover-link" href="">Hover over me</a>`,
+    html_code: `<a class="hover-link" href="">Hover over me</a>`,
     author: "CrisMader",
-    createdAt: "2025-04-01"
+    created_at: "2025-04-01"
   }
 ]

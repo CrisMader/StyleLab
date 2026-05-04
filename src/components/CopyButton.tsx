@@ -1,27 +1,22 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 interface CopyButtonProps {
-    copyText: string
+  copyText: string
+  label?: string
 }
 
-export const CopyButton = ({ copyText }: CopyButtonProps) => {
+export const CopyButton = ({ copyText, label = 'Copy CSS' }: CopyButtonProps) => {
+  const [isCopied, setIsCopied] = useState(false)
 
-    const [isCopied, setIsCopied] = useState(false)
+  const handleCopy = () => {
+    navigator.clipboard.writeText(copyText)
+    setIsCopied(true)
+    setTimeout(() => setIsCopied(false), 2000)
+  }
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(copyText)
-        setIsCopied(true)
-
-        setTimeout(() => {
-            setIsCopied(false)
-        }, 2000)
-    }
-
-    return (
-
-        <button onClick={handleCopy}>
-            {isCopied ? 'Copied!' : 'Copy CSS'}
-        </button>
-
-    )
+  return (
+    <button onClick={handleCopy}>
+      {isCopied ? '¡Copiado!' : label}
+    </button>
+  )
 }

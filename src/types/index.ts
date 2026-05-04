@@ -3,9 +3,9 @@ export interface Snippet{
     title: string
     description: string
     category: string
-    cssCode: string
-    htmlCode: string
+    css_code: string
+    html_code: string
     author: string
-    createdAt: string
+    created_at: string
 }
 
