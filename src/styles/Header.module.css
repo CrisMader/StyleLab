@@ -1,0 +1,12 @@
+.header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #2a2a2a;
+  background-color: #141414;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #e5e5e5;
+}
