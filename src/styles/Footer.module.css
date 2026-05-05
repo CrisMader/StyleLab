@@ -1,14 +1,40 @@
 .footer {
   margin-top: auto;
-  padding: 16px 24px;
-  border-top: 1px solid #2a2a2a;
-  background-color: #141414;
+  padding: 32px 24px;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
   text-align: center;
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.name {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.links a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.links a:hover {
+  color: var(--color-accent);
 }
 
 .separator {
-  margin: 0 8px;
-  color: #555;
+  color: var(--color-border-strong);
+  user-select: none;
 }

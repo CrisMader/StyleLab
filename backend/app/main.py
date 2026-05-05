@@ -2,13 +2,13 @@ from .database import SessionLocal, Base, engine
 from sqlalchemy.orm import Session
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from .models import Snippet, User
+from .models import Snippet, User, Favorite
 from .schemas import (
     SnippetCreate, SnippetResponse,
     LoginRequest, TokenResponse,
     UserCreate, UserUpdate, UserResponse,
 )
-from .auth import hash_password, verify_password, create_access_token
+from .auth import hash_password, verify_password, create_access_token, get_current_user_id
 
 
 def get_db():
@@ -89,6 +89,42 @@ def login(body: LoginRequest, db: Session = Depends(get_db)):
 
     token = create_access_token({"sub": str(user.id), "role": user.role})
     return {"access_token": token, "token_type": "bearer", "user": user}
+
+
+# ── Favorites ────────────────────────────────────────────
+
+@app.get("/favorites", response_model=list[SnippetResponse])
+def get_favorites(user_id: int = Depends(get_current_user_id), db: Session = Depends(get_db)):
+    favorites = db.query(Favorite).filter(Favorite.user_id == user_id).all()
+    snippet_ids = [f.snippet_id for f in favorites]
+    return db.query(Snippet).filter(Snippet.id.in_(snippet_ids)).all()
+
+
+@app.get("/favorites/ids", response_model=list[int])
+def get_favorite_ids(user_id: int = Depends(get_current_user_id), db: Session = Depends(get_db)):
+    favorites = db.query(Favorite).filter(Favorite.user_id == user_id).all()
+    return [f.snippet_id for f in favorites]
+
+
+@app.post("/favorites/{snippet_id}", status_code=201)
+def add_favorite(snippet_id: int, user_id: int = Depends(get_current_user_id), db: Session = Depends(get_db)):
+    if not db.query(Snippet).filter(Snippet.id == snippet_id).first():
+        raise HTTPException(status_code=404, detail="Snippet not found")
+    if db.query(Favorite).filter(Favorite.user_id == user_id, Favorite.snippet_id == snippet_id).first():
+        raise HTTPException(status_code=400, detail="Already in favorites")
+    db.add(Favorite(user_id=user_id, snippet_id=snippet_id))
+    db.commit()
+    return {"detail": "Added to favorites"}
+
+
+@app.delete("/favorites/{snippet_id}", status_code=200)
+def remove_favorite(snippet_id: int, user_id: int = Depends(get_current_user_id), db: Session = Depends(get_db)):
+    fav = db.query(Favorite).filter(Favorite.user_id == user_id, Favorite.snippet_id == snippet_id).first()
+    if not fav:
+        raise HTTPException(status_code=404, detail="Favorite not found")
+    db.delete(fav)
+    db.commit()
+    return {"detail": "Removed from favorites"}
 
 
 # ── Users ─────────────────────────────────────────────────

@@ -1,16 +1,25 @@
+import styles from '../styles/CategoryFilter.module.css'
+
 interface CategoriesFilterProps {
-    categories: string[]
-    onSelected: (param: string) => void
+  categories: string[]
+  selected: string
+  onSelected: (param: string) => void
 }
 
-export const CategoryFilter = ({ categories, onSelected}: CategoriesFilterProps) =>{
+export const CategoryFilter = ({ categories, selected, onSelected }: CategoriesFilterProps) => {
+  const all = ['All', ...categories]
 
-    return(
-        <>
-        <button onClick={() => onSelected('All')}>All</button>
-        {categories.map(category => (
-            <button onClick={() => onSelected(category)} key={category}>{category}</button>
-        ))}
-        </>
-    )
+  return (
+    <div className={styles.filters}>
+      {all.map(category => (
+        <button
+          key={category}
+          onClick={() => onSelected(category)}
+          className={`${styles.pill} ${selected === category ? styles.pillActive : ''}`}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+  )
 }

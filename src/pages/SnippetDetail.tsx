@@ -35,10 +35,10 @@ export const SnippetDetail = () => {
     getSnippet()
   }, [id, backendURL])
 
-  if (loading) return <p className={styles.status}>Cargando snippet...</p>
-  if (notFound || !snippet) return <p className={styles.status}>Snippet no encontrado.</p>
+  if (loading) return <p className={styles.status}>Loading snippet…</p>
+  if (notFound || !snippet) return <p className={styles.status}>Snippet not found.</p>
 
-  const formattedDate = new Date(snippet.created_at).toLocaleDateString('es-ES', {
+  const formattedDate = new Date(snippet.created_at).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -47,7 +47,7 @@ export const SnippetDetail = () => {
   return (
     <div className={styles.page}>
       <button className={styles.backButton} onClick={() => navigate(-1)}>
-        ← Volver
+        ← Back
       </button>
 
       <div className={styles.container}>
@@ -57,15 +57,15 @@ export const SnippetDetail = () => {
             <span className={styles.category}>{snippet.category}</span>
           </div>
           <div className={styles.meta}>
-            <p>Autor: <strong>{snippet.author}</strong></p>
-            <p>Publicado: <strong>{formattedDate}</strong></p>
+            <p>Author: <strong>{snippet.author}</strong></p>
+            <p>Published: <strong>{formattedDate}</strong></p>
           </div>
         </header>
 
         <p className={styles.description}>{snippet.description}</p>
 
         <section className={styles.previewSection}>
-          <h2>Vista previa</h2>
+          <h2>Preview</h2>
           <SnippetCardPreview css_code={snippet.css_code} html_code={snippet.html_code} height={350} />
         </section>
 
@@ -73,7 +73,7 @@ export const SnippetDetail = () => {
           <div className={styles.codeBlock}>
             <div className={styles.codeHeader}>
               <h3>HTML</h3>
-              <CopyButton copyText={snippet.html_code} label="Copiar HTML" />
+              <CopyButton copyText={snippet.html_code} label="Copy HTML" />
             </div>
             <pre className={styles.code}><code>{snippet.html_code}</code></pre>
           </div>
@@ -81,7 +81,7 @@ export const SnippetDetail = () => {
           <div className={styles.codeBlock}>
             <div className={styles.codeHeader}>
               <h3>CSS</h3>
-              <CopyButton copyText={snippet.css_code} label="Copiar CSS" />
+              <CopyButton copyText={snippet.css_code} label="Copy CSS" />
             </div>
             <pre className={styles.code}><code>{snippet.css_code}</code></pre>
           </div>

@@ -29,7 +29,12 @@ export const Header = () => {
     <header className={styles.header}>
       <Link to="/" className={styles.logo}>StyleLab</Link>
 
-      <nav className={styles.nav}>
+      <nav className={styles.navCenter}>
+        {user && <Link to="/favorites" className={styles.navLink}>Favorites</Link>}
+        <Link to="/about" className={styles.navLink}>About</Link>
+      </nav>
+
+      <div className={styles.navRight}>
         {user ? (
           <div className={styles.userMenu} ref={dropdownRef}>
             <button className={styles.userButton} onClick={() => setOpen(o => !o)}>
@@ -38,11 +43,7 @@ export const Header = () => {
 
             {open && (
               <div className={styles.dropdown}>
-                <Link
-                  to="/edit"
-                  className={styles.dropdownItem}
-                  onClick={() => setOpen(false)}
-                >
+                <Link to="/edit" className={styles.dropdownItem} onClick={() => setOpen(false)}>
                   Edit profile
                 </Link>
                 <button className={styles.dropdownItem} onClick={handleLogout}>
@@ -57,7 +58,7 @@ export const Header = () => {
             <Link to="/register" className={styles.btnPrimary}>Sign up</Link>
           </>
         )}
-      </nav>
+      </div>
     </header>
   )
 }

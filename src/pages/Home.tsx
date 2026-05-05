@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { SnippetCard } from '../components/SnippetCard'
 import { CategoryFilter } from '../components/CategoryFilter'
+import { useFavorites } from '../hooks/useFavorites'
 import type { Snippet } from '../types'
 import styles from '../styles/App.module.css'
 
@@ -13,22 +14,22 @@ export const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
   const [query, setQuery] = useState<string>('')
 
+  const { favoriteIds, toggle } = useFavorites()
   const categories = [...new Set(snippets.map(s => s.category))]
 
-  const getSnippets = async () => {
-    try {
-      const res = await fetch(`${backendURL}/snippets`)
-      if (!res.ok) throw new Error()
-      const data = await res.json()
-      setSnippets(data)
-    } catch {
-      setError(true)
-    } finally {
-      setLoading(false)
-    }
-  }
-
   useEffect(() => {
+    const getSnippets = async () => {
+      try {
+        const res = await fetch(`${backendURL}/snippets`)
+        if (!res.ok) throw new Error()
+        const data = await res.json()
+        setSnippets(data)
+      } catch {
+        setError(true)
+      } finally {
+        setLoading(false)
+      }
+    }
     getSnippets()
   }, [])
 
@@ -39,34 +40,54 @@ export const Home = () => {
       return s.title.toLowerCase().includes(q) || s.description.toLowerCase().includes(q)
     })
 
-  if (loading) return <p className={styles.status}>Cargando snippets...</p>
-  if (error) return <p className={styles.status}>Error al cargar los snippets. Comprueba que el servidor esté activo.</p>
-
   return (
-    <>
-      <h1>Snippets</h1>
+    <div className={styles.page}>
+      <h1 className={styles.heading}>Snippets</h1>
+      <p className={styles.subheading}>
+        A curated collection of CSS effects, components, and animations.
+      </p>
 
-      <input
-        className={styles.search}
-        type="text"
-        placeholder="Buscar por título o descripción..."
-        value={query}
-        onChange={e => setQuery(e.target.value)}
-      />
+      <div className={styles.toolbar}>
+        <input
+          className={styles.search}
+          type="text"
+          placeholder="Search by title or description..."
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+        />
+        <CategoryFilter
+          categories={categories}
+          selected={selectedCategory}
+          onSelected={setSelectedCategory}
+        />
+      </div>
 
-      <CategoryFilter categories={categories} onSelected={setSelectedCategory} />
-
-      {snippets.length === 0 ? (
-        <p className={styles.status}>No hay snippets disponibles aún.</p>
+      {loading ? (
+        <p className={styles.status}>Loading snippets…</p>
+      ) : error ? (
+        <p className={styles.status}>Could not load snippets. Make sure the server is running.</p>
+      ) : snippets.length === 0 ? (
+        <div className={styles.empty}>
+          <p className={styles.emptyTitle}>No snippets available yet</p>
+          <p className={styles.emptyText}>Check back soon for new additions.</p>
+        </div>
       ) : filtered.length === 0 ? (
-        <p className={styles.status}>No results found for "{query}".</p>
+        <div className={styles.empty}>
+          <p className={styles.emptyTitle}>No results found</p>
+          <p className={styles.emptyText}>Try a different search or category.</p>
+        </div>
       ) : (
         <div className={styles.app}>
           {filtered.map(snippet => (
-            <SnippetCard key={snippet.id} snippet={snippet} />
+            <SnippetCard
+              key={snippet.id}
+              snippet={snippet}
+              isFavorited={favoriteIds.has(snippet.id)}
+              onToggleFavorite={toggle}
+            />
           ))}
         </div>
       )}
-    </>
+    </div>
   )
 }

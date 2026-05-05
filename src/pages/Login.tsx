@@ -1,11 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import styles from '../styles/Auth.module.css'
 
 export const Login = () => {
-  const { login } = useAuth()
+  const { login, user } = useAuth()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (user) navigate('/', { replace: true })
+  }, [user, navigate])
+
   const backendURL = import.meta.env.VITE_API_URL
 
   const [email, setEmail] = useState('')
@@ -31,7 +36,7 @@ export const Login = () => {
 
       const data = await res.json()
       login(data.access_token, data.user)
-      navigate('/')
+      navigate('/', { replace: true })
     } catch {
       setError('Could not connect to the server')
     }
@@ -40,7 +45,8 @@ export const Login = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
-        <h2 className={styles.title}>Log in</h2>
+        <h2 className={styles.title}>Welcome back</h2>
+        <p className={styles.subtitle}>Log in to access your favorites.</p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <label className={styles.label}>Email</label>

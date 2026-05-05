@@ -1,4 +1,4 @@
-from sqlalchemy import String, Text
+from sqlalchemy import String, Text, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 from .database import Base
 from datetime import datetime, timezone
@@ -25,3 +25,13 @@ class User(Base):
     hashed_password: Mapped[str] = mapped_column(String, nullable=False)
     role: Mapped[str] = mapped_column(String(20), nullable=False, default="user")
     created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now(timezone.utc))
+
+
+class Favorite(Base):
+    __tablename__ = "favorite"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("user.id"), nullable=False)
+    snippet_id: Mapped[int] = mapped_column(ForeignKey("snippet.id"), nullable=False)
+
+    __table_args__ = (UniqueConstraint("user_id", "snippet_id"),)

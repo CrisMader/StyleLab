@@ -23,7 +23,7 @@ export const SnippetCardPreview = ({ css_code, html_code, height = 200 }: Snippe
     justify-content: center;
     min-height: 200px;
     font-family: system-ui, sans-serif;
-    background: #fafafa;
+    background: transparent;
   }
   .preview-wrapper {
   position: relative;
