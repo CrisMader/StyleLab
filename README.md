@@ -6,6 +6,7 @@
 
 **A curated collection of reusable CSS snippets for modern web development.**
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-6366f1?style=flat-square)](LICENSE)
 [![Status](https://img.shields.io/badge/status-in%20development-f59e0b?style=flat-square)]()
 [![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=white)]()
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript&logoColor=white)]()
@@ -203,6 +204,12 @@ Anthropic's AI coding agent, used to:
 - [ ] User profiles with public collections
 - [ ] Tests (frontend + backend)
 - [ ] Deployment
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 
