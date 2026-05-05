@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/images/stylelab.png" alt="StyleLab" width="120" />
+<img src="images/stylelab.png" alt="StyleLab" width="120" />
 
 # StyleLab
 
@@ -27,6 +27,65 @@ into your project.
 
 > 💡 Whether you're prototyping a new feature or polishing a production app,
 > you'll find snippets that just work.
+
+---
+
+## 📸 A quick tour
+
+A walkthrough of the app's main views.
+
+### 🏠 Home — Browse snippets
+
+The main gallery. Browse the full collection of snippets with **live previews**, filter
+by category, and search by title or description.
+
+<p align="center">
+  <img src="images/captures/captura1.png" alt="Home — snippets gallery with live previews" width="100%" />
+</p>
+
+---
+
+### ℹ️ About — What & why
+
+A dedicated page that explains **what StyleLab is**, the philosophy behind it, and the
+tech stack used to build it.
+
+<p align="center">
+  <img src="images/captures/captura2.png" alt="About page — explaining what StyleLab is" width="100%" />
+</p>
+
+---
+
+### 🔐 Login — User authentication
+
+Clean, minimal sign-in screen. Authentication is JWT-based and unlocks personal features
+like saving favorites.
+
+<p align="center">
+  <img src="images/captures/captura3.png" alt="Login screen" width="100%" />
+</p>
+
+---
+
+### ❤️ Favorites — Your personal collection
+
+Every signed-in user gets a **personal Favorites page** where they can curate the
+snippets they want to keep close at hand.
+
+<p align="center">
+  <img src="images/captures/captura4.png" alt="Favorites page — personal saved snippets" width="100%" />
+</p>
+
+---
+
+### 🔍 Details — Full snippet view
+
+Click **View details** on any snippet to open the full view: a **larger live preview**
+plus both the **HTML and CSS code**, each with its own one-click copy button.
+
+<p align="center">
+  <img src="images/captures/captura5.png" alt="Snippet details — full preview with HTML and CSS code" width="100%" />
+</p>
 
 ---
 
