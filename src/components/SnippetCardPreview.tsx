@@ -23,7 +23,8 @@ export const SnippetCardPreview = ({ css_code, html_code, height = 200 }: Snippe
     justify-content: center;
     min-height: 200px;
     font-family: system-ui, sans-serif;
-    background: transparent;
+    background: linear-gradient(135deg, #18181c 0%, #1e1b4b 100%);
+    color: #fafafa;
   }
   .preview-wrapper {
   position: relative;

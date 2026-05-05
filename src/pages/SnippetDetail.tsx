@@ -66,7 +66,9 @@ export const SnippetDetail = () => {
 
         <section className={styles.previewSection}>
           <h2>Preview</h2>
-          <SnippetCardPreview css_code={snippet.css_code} html_code={snippet.html_code} height={350} />
+          <div className={styles.previewFrame}>
+            <SnippetCardPreview css_code={snippet.css_code} html_code={snippet.html_code} height={350} />
+          </div>
         </section>
 
         <section className={styles.codeSection}>
