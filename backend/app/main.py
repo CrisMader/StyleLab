@@ -1,6 +1,7 @@
 from .database import SessionLocal, Base, engine
 from sqlalchemy.orm import Session
 from fastapi import FastAPI, Depends, HTTPException
+import os
 from fastapi.middleware.cors import CORSMiddleware
 from .models import Snippet, User, Favorite
 from .schemas import (
@@ -21,7 +22,7 @@ def get_db():
 
 app = FastAPI()
 
-origins = ["http://localhost:5173"]
+origins = ["http://localhost:5173", os.getenv("FRONTEND_URL", "")]
 
 app.add_middleware(
     CORSMiddleware,
