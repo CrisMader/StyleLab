@@ -1,73 +1,154 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="public/images/stylelab.png" alt="StyleLab" width="120" />
 
-Currently, two official plugins are available:
+# StyleLab
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**A curated collection of reusable CSS snippets for modern web development.**
 
-## React Compiler
+[![Status](https://img.shields.io/badge/status-in%20development-f59e0b?style=flat-square)]()
+[![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=white)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript&logoColor=white)]()
+[![FastAPI](https://img.shields.io/badge/FastAPI-Python-009688?style=flat-square&logo=fastapi&logoColor=white)]()
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-DB-336791?style=flat-square&logo=postgresql&logoColor=white)]()
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+</div>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ What is StyleLab?
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**StyleLab** is an interactive gallery of **reusable CSS snippets** designed to help developers
+build better interfaces, faster.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Browse through buttons, cards, animations, form inputs, and more — each with a **live preview**,
+**clean code**, and **copy-paste simplicity**. No frameworks required, just pure CSS ready to drop
+into your project.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+> 💡 Whether you're prototyping a new feature or polishing a production app,
+> you'll find snippets that just work.
+
+---
+
+## 🚀 Getting started
+
+The project is split into two services: a **React + TypeScript** frontend and a
+**FastAPI + PostgreSQL** backend.
+
+### Prerequisites
+
+- **Node.js** ≥ 18
+- **Python** ≥ 3.12
+- **PostgreSQL** running locally (database: `stylelab`)
+
+### 1️⃣  Frontend
+
+```bash
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app will be available at **http://localhost:5173**.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 2️⃣  Backend
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd backend
+
+# Create a virtual environment
+python -m venv venv
+venv\Scripts\activate          # Windows
+# source venv/bin/activate     # macOS / Linux
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Start the API
+uvicorn app.main:app --reload
 ```
+
+The API will be available at **http://127.0.0.1:8000**.
+
+> ⚠️  Make sure the `backend/.env` file contains your database URL and JWT secret
+> before starting the API.
+
+---
+
+## 🛠️ Tech stack
+
+<table>
+  <tr>
+    <td><strong>Frontend</strong></td>
+    <td>React 19, TypeScript, Vite, React Router, CSS Modules</td>
+  </tr>
+  <tr>
+    <td><strong>Backend</strong></td>
+    <td>Python 3.12, FastAPI, SQLAlchemy, JWT auth</td>
+  </tr>
+  <tr>
+    <td><strong>Database</strong></td>
+    <td>PostgreSQL</td>
+  </tr>
+  <tr>
+    <td><strong>Design</strong></td>
+    <td>CSS Modules — no frameworks, no Tailwind</td>
+  </tr>
+</table>
+
+---
+
+## 🤖 Built with Claude Code
+
+This project was developed with assistance from **[Claude Code](https://claude.com/claude-code)**,
+Anthropic's AI coding agent, used to:
+
+- ⚡ **Speed up** repetitive scaffolding and boilerplate
+- 🔧 **Automate** parts of the redesign and refactoring process
+- 🎨 **Iterate** quickly on UI/UX decisions
+
+> 🧠 Claude Code is used as a *collaborator*, not a replacement —
+> every decision is reviewed, adjusted, and validated by hand.
+
+---
+
+## 👤 Author
+
+<table>
+  <tr>
+    <td>
+      <strong>Cristian Trapiello&nbsp;|&nbsp;Mader</strong><br/>
+      <a href="https://www.linkedin.com/in/cristian-trapiello">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/CrisMader">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:mader.projects@gmail.com">mader.projects@gmail.com</a>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 🚧 Project status
+
+> **StyleLab is still in active development.**
+> New features, snippets, and refinements are being added regularly. Feedback and ideas are
+> welcome.
+
+### Roadmap
+
+- [ ] Snippet creation form (UI)
+- [ ] Pagination & advanced filtering
+- [ ] User profiles with public collections
+- [ ] Tests (frontend + backend)
+- [ ] Deployment
+
+---
+
+<div align="center">
+
+Made with ☕ and a bit of indigo by **Mader**
+
+</div>
