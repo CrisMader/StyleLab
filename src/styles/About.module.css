@@ -1,0 +1,96 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+.heading {
+  font-size: 2.25rem;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+}
+
+.lead {
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.body {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.section {
+  margin-top: 48px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+
+.stack {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.stackItem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.stackItem:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.stackLabel {
+  color: var(--color-text);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 56px 0 32px;
+  border: none;
+}
+
+.footnote {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.footnote strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 40px 16px 56px;
+  }
+  .heading {
+    font-size: 1.875rem;
+  }
+}

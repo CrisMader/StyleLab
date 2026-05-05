@@ -1,7 +1,7 @@
 .header {
   padding: 14px 32px;
   border-bottom: 1px solid var(--color-border);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--color-surface-translucent);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   display: grid;
@@ -13,6 +13,9 @@
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 1.0625rem;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -24,6 +27,13 @@
 
 .logo:hover {
   color: var(--color-accent);
+}
+
+.logoImg {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
 }
 
 .navCenter {
@@ -73,17 +83,38 @@
 .btnPrimary {
   padding: 8px 16px;
   border-radius: var(--radius-md);
-  background-color: var(--color-text);
-  color: var(--color-surface);
+  background-color: var(--color-accent);
+  color: #ffffff;
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
-  transition: background-color var(--transition), transform var(--transition);
+  transition: background-color var(--transition), box-shadow var(--transition);
 }
 
 .btnPrimary:hover {
-  background-color: #1e293b;
-  color: var(--color-surface);
+  background-color: var(--color-accent-hover);
+  color: #ffffff;
+  box-shadow: 0 0 0 4px var(--color-accent-ring);
+}
+
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.themeToggle:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
 }
 
 /* ── User dropdown ── */

@@ -24,7 +24,7 @@
 
 .pillActive,
 .pillActive:hover {
-  background: var(--color-text);
-  color: var(--color-surface);
-  border-color: var(--color-text);
+  background: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
 }

@@ -69,16 +69,17 @@
   padding: 12px;
   border-radius: var(--radius-md);
   border: none;
-  background-color: var(--color-text);
-  color: var(--color-surface);
+  background-color: var(--color-accent);
+  color: #ffffff;
   font-size: 0.9375rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color var(--transition);
+  transition: background-color var(--transition), box-shadow var(--transition);
 }
 
 .submit:hover {
-  background-color: #1e293b;
+  background-color: var(--color-accent-hover);
+  box-shadow: 0 0 0 4px var(--color-accent-ring);
 }
 
 .footer {

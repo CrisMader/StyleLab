@@ -17,7 +17,7 @@
 
 .previewWrap {
   position: relative;
-  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  background: var(--preview-bg);
   border-bottom: 1px solid var(--color-border);
   padding: 28px;
   display: flex;
